@@ -1,0 +1,21 @@
+---
+# spacegal/ssl
+#
+
+_dep_install:
+    _info:
+        title: Check dependencies for this module.
+    _env:
+        - CMD: SSL_DEP_INSTALL
+genrsa:
+    _info:
+        title: Generate a private key to be used with CSR.
+    _env:
+        - CMD: SSL_GENRSA -- ${KEYFILE-} ${BITS-}
+
+gencsr:
+    _info:
+        title: Create CSR.
+    _env:
+        - CMD: SSL_GENCSR -- ${KEYFILE-} ${CSRFILE-} "${CSRARGS-}"
+...
