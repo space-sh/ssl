@@ -7,7 +7,7 @@ _dep_install:
         title: Check dependencies for this module.
     _env:
         - CMD: SSL_DEP_INSTALL
-genrsa:
+genkey:
     _info:
         title: Generate a private key to be used with CSR.
     _env:
