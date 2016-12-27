@@ -23,15 +23,25 @@ _dep_install:
         title: Check dependencies for this module.
     _env:
         - CMD: SSL_DEP_INSTALL
+
+_info:
+    title: SSL module
+    desc:|
+        Generates private keys and certificates.
+
 genkey:
     _info:
-        title: Generate a private key to be used with CSR.
+        title: Generate key
+        desc:|
+            Generates a private key to be used with CSR.
     _env:
         - CMD: SSL_GENRSA -- ${KEYFILE-} ${BITS-}
 
 gencsr:
     _info:
-        title: Create CSR.
+        title: Create CSR
+        desc:|
+            Creates a new Certificate Signing Request.
     _env:
         - CMD: SSL_GENCSR -- ${KEYFILE-} ${CSRFILE-} "${CSRARGS-}"
-...
+

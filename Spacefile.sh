@@ -21,6 +21,10 @@ clone os file
 #
 # Make sure that OpenSSL is installed.
 #
+# Returns:
+#   0: success. Dependencies were found
+#   1: failed to find dependencies
+#
 #================================
 SSL_DEP_INSTALL ()
 {
@@ -40,6 +44,15 @@ SSL_DEP_INSTALL ()
 
 #================================
 # SSL_GENRSA
+#
+# Generate a new RSA private key.
+#
+# Parameters:
+#   $1: key file path
+#   $2: number of bits (optional)
+#
+# Returns:
+#   Non-zero on error.
 #
 #================================
 SSL_GENRSA ()
@@ -61,6 +74,15 @@ SSL_GENRSA ()
 
 #================================
 # SSL_GENCSR
+#
+# Generate a new CSR.
+#
+# Parameters:
+#   $1: key file path
+#   $2: CSR file path
+#
+# Returns:
+#   Non-zero on error.
 #
 #================================
 SSL_GENCSR ()
@@ -88,9 +110,14 @@ SSL_GENCSR ()
 }
 
 #====================
+# SSL_GENSELFSIGNED
 #
 # Generate self signed certificate for
 # development purposes.
+#
+# Parameters:
+#   $1: SSL certificate output path
+#   $2: SSL key output path
 #
 #====================
 SSL_GENSELFSIGNED ()
@@ -103,5 +130,5 @@ SSL_GENSELFSIGNED ()
     shift
 
     #openssl req -x509 -newkey rsa:2048 -keyout ${sslkey} -out ${sslcert} -days 33 -nodes
-
 }
+
