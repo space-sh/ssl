@@ -16,6 +16,10 @@
 
 clone os file
 
+
+# Disable warning about indirectly checking status code
+# shellcheck disable=SC2181
+
 #================================
 # SSL_DEP_INSTALL
 #
