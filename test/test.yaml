@@ -40,7 +40,7 @@ _tests:
             # We do an upgrade since current Alpine need that for SSL.
             @include: os|/upgrade
         -
-            @include: @{DIR}/../Spacefile.yaml|/_install
+            @include: @{DIR}/../Spacefile.yaml|/_dep_install
         -
             _env:
                 - KEYFILE: /tmp/keyfile
