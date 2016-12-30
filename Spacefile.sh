@@ -122,17 +122,30 @@ SSL_GENCSR ()
 # Parameters:
 #   $1: SSL certificate output path
 #   $2: SSL key output path
+#   $3: number of bits for RSA (optional)
+#   $4: number of days to be valid for (optional)
+#
+# Returns:
+#   Non-zero on error.
 #
 #====================
 SSL_GENSELFSIGNED ()
 {
-    # TODO
-    local sslcert=$1
+    local sslcert="$1"
     shift
 
-    local sslkey=$1
+    local sslkey="$1"
     shift
 
-    #openssl req -x509 -newkey rsa:2048 -keyout ${sslkey} -out ${sslcert} -days 33 -nodes
+    local bits="${1-4096}"
+    shift $(( $# > 0 ? 1 : 0 ))
+
+    local days="${1-30}"
+    shift $(( $# > 0 ? 1 : 0 ))
+
+    local args="${1-}"
+    shift $(( $# > 0 ? 1 : 0 ))
+
+    openssl req -x509 -newkey "rsa:${bits}" -keyout ${sslkey} -out ${sslcert} -days "${days}" -nodes ${args}
 }
 

@@ -54,6 +54,14 @@ _tests:
                 - CSRFILE: /tmp/csrfile
                 - CSRARGS: -subj /C=SE -subj /CN=SpaceGal
             @include: @{DIR}/../Spacefile.yaml|/gencsr
+        -
+            _env:
+                - KEYFILE: /tmp/keyfile
+                - CERTFILE: /tmp/csrfile
+                - BITS: 4096
+                - DAYS: 30
+                - CERTARGS: -subj /C=SE -subj /CN=SpaceGal
+            @include: @{DIR}/../Spacefile.yaml|/genselfsigned
 
 _clean:
     _info:

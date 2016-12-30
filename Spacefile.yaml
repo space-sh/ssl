@@ -45,3 +45,11 @@ gencsr:
     _env:
         - CMD: SSL_GENCSR -- ${KEYFILE-} ${CSRFILE-} "${CSRARGS-}"
 
+genselfsigned:
+    _info:
+        title: Create self-signed certificate
+        desc:|
+            Creates a new self-signed certificate and key
+    _env:
+        - CMD: SSL_GENSELFSIGNED -- ${KEYFILE-} ${CERTFILE-} ${BITS-} ${DAYS-} "${CERTARGS-}"
+
