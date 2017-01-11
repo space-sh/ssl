@@ -39,7 +39,7 @@ SSL_DEP_INSTALL ()
     OS_IS_INSTALLED "openssl" "openssl"
 
     if [ "$?" -eq 0 ]; then
-        PRINT "Dependencies found." "success"
+        PRINT "Dependencies found." "ok"
     else
         PRINT "Failed finding dependencies." "error"
         return 1
