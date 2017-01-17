@@ -46,6 +46,10 @@ SSL_DEP_INSTALL ()
     fi
 }
 
+
+# Disable warning about local keyword
+# shellcheck disable=SC2039
+
 #================================
 # SSL_GENRSA
 #
@@ -75,6 +79,10 @@ SSL_GENRSA ()
     FILE_MKDIRP "$(dirname "${keyfile}")" &&
     openssl genrsa -out "${keyfile}" "${bits}"
 }
+
+
+# Disable warning about local keyword
+# shellcheck disable=SC2039
 
 #================================
 # SSL_GENCSR
@@ -113,6 +121,10 @@ SSL_GENCSR ()
     openssl req -new -sha256 -key "${keyfile}" -out "${csrfile}" ${args}
 }
 
+
+# Disable warning about local keyword
+# shellcheck disable=SC2039
+
 #====================
 # SSL_GENSELFSIGNED
 #
@@ -146,6 +158,7 @@ SSL_GENSELFSIGNED ()
     local args="${1-}"
     shift $(( $# > 0 ? 1 : 0 ))
 
+    # shellcheck disable=SC2086
     openssl req -x509 -newkey "rsa:${bits}" -keyout ${sslkey} -out ${sslcert} -days "${days}" -nodes ${args}
 }
 
