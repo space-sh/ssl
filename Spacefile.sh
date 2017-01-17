@@ -32,7 +32,7 @@ clone os file
 #================================
 SSL_DEP_INSTALL ()
 {
-    SPACE_CMDDEP="OS_IS_INSTALLED PRINT"
+    SPACE_DEP="OS_IS_INSTALLED PRINT"
 
     PRINT "Checking for OS dependencies." "info"
 
@@ -62,7 +62,7 @@ SSL_DEP_INSTALL ()
 SSL_GENRSA ()
 {
     SPACE_SIGNATURE="keyfile bits"
-    SPACE_CMDDEP="PRINT FILE_MKDIRP"
+    SPACE_DEP="PRINT FILE_MKDIRP"
 
     local keyfile="${1}"
     shift
@@ -94,7 +94,7 @@ SSL_GENCSR ()
     # shellcheck disable=SC2034
     SPACE_SIGNATURE="keyfile csrfile [args]"
     # shellcheck disable=SC2034
-    SPACE_CMDDEP="PRINT FILE_MKDIRP"
+    SPACE_DEP="PRINT FILE_MKDIRP"
 
     local keyfile="${1}"
     shift
