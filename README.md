@@ -15,6 +15,12 @@ Generates private keys and certificates.
 	Generates a private key to be used with CSR.
 
 
+## /genselfsigned/
+	Create self-signed certificate
+
+	Creates a new self-signed certificate and key
+
+
 # Functions 
 
 ## SSL\_DEP\_INSTALL ()  
@@ -69,6 +75,11 @@ development purposes.
 ### Parameters:  
 - $1: SSL certificate output path  
 - $2: SSL key output path  
+- $3: number of bits for RSA (optional)  
+- $4: number of days to be valid for (optional)  
+  
+### Returns:  
+- Non-zero on error.  
   
   
   
