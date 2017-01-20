@@ -24,7 +24,7 @@ _info:
         they might wreak havoc on your system.
         TestRunner module wraps the tests properly.
 _env:
-    - CMD: ${_SPACEBIN} -m testrunner /run/ -- -- @{DIR}/test.yaml
+    - RUN: ${_SPACEBIN} -m testrunner /run/ -- -- @{DIR}/test.yaml
 
 _platforms:
     - type: docker
@@ -67,6 +67,5 @@ _clean:
     _info:
         title: Do nothing.
     _env:
-        - CMDWRAP: !unset
-        - CMD: ":"
-
+        - SPACE_WRAP: !unset
+        - RUN: ":"

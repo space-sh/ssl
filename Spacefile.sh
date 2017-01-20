@@ -161,4 +161,3 @@ SSL_GENSELFSIGNED ()
     # shellcheck disable=SC2086
     openssl req -x509 -newkey "rsa:${bits}" -keyout ${sslkey} -out ${sslcert} -days "${days}" -nodes ${args}
 }
-
