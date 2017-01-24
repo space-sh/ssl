@@ -40,20 +40,20 @@ _tests:
     -
         -
             # We do an upgrade since current Alpine need that for SSL.
-            @include: os|/upgrade
+            @include: os|/upgrade/
         -
-            @include: @{DIR}/../Spacefile.yaml|/_dep_install
+            @include: @{DIR}/../Spacefile.yaml|/_dep_install/
         -
             _env:
                 - KEYFILE: /tmp/keyfile
                 - BITS: 2048
-            @include: @{DIR}/../Spacefile.yaml|/genkey
+            @include: @{DIR}/../Spacefile.yaml|/genkey/
         -
             _env:
                 - KEYFILE: /tmp/keyfile
                 - CSRFILE: /tmp/csrfile
                 - CSRARGS: -subj /C=SE -subj /CN=SpaceGal
-            @include: @{DIR}/../Spacefile.yaml|/gencsr
+            @include: @{DIR}/../Spacefile.yaml|/gencsr/
         -
             _env:
                 - KEYFILE: /tmp/keyfile
@@ -61,7 +61,7 @@ _tests:
                 - BITS: 4096
                 - DAYS: 30
                 - CERTARGS: -subj /C=SE -subj /CN=SpaceGal
-            @include: @{DIR}/../Spacefile.yaml|/genselfsigned
+            @include: @{DIR}/../Spacefile.yaml|/genselfsigned/
 
 _clean:
     _info:
