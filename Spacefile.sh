@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-clone os file
-
-
 # Disable warning about indirectly checking status code
 # shellcheck disable=SC2181
 
@@ -30,7 +27,7 @@ clone os file
 #   1: failed to find dependencies
 #
 #================================
-SSL_DEP_INSTALL ()
+SSL_DEP_INSTALL()
 {
     SPACE_DEP="OS_IS_INSTALLED PRINT"
 
@@ -63,7 +60,7 @@ SSL_DEP_INSTALL ()
 #   Non-zero on error.
 #
 #================================
-SSL_GENRSA ()
+SSL_GENRSA()
 {
     SPACE_SIGNATURE="keyfile bits"
     SPACE_DEP="PRINT FILE_MKDIRP"
@@ -97,7 +94,7 @@ SSL_GENRSA ()
 #   Non-zero on error.
 #
 #================================
-SSL_GENCSR ()
+SSL_GENCSR()
 {
     # shellcheck disable=SC2034
     SPACE_SIGNATURE="keyfile csrfile [args]"
@@ -141,7 +138,7 @@ SSL_GENCSR ()
 #   Non-zero on error.
 #
 #====================
-SSL_GENSELFSIGNED ()
+SSL_GENSELFSIGNED()
 {
     local sslcert="$1"
     shift

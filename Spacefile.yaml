@@ -13,8 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 ---
+@clone: os file
+
 _dep_install:
     _info:
         title: Check dependencies for this module.
@@ -49,3 +50,4 @@ genselfsigned:
             Creates a new self-signed certificate and key
     _env:
         - RUN: SSL_GENSELFSIGNED -- ${KEYFILE-} ${CERTFILE-} ${BITS-} ${DAYS-} "${CERTARGS-}"
+...
