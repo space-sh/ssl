@@ -3,27 +3,31 @@
 Generates private keys and certificates.
 
 
+
 ## /gencsr/
 	Create CSR
 
 	Creates a new Certificate Signing Request.
+	
 
 
 ## /genkey/
 	Generate key
 
 	Generates a private key to be used with CSR.
+	
 
 
 ## /genselfsigned/
 	Create self-signed certificate
 
 	Creates a new self-signed certificate and key
+	
 
 
 # Functions 
 
-## SSL\_DEP\_INSTALL ()  
+## SSL\_DEP\_INSTALL()  
   
   
   
@@ -35,7 +39,7 @@ Make sure that OpenSSL is installed.
   
   
   
-## SSL\_GENRSA ()  
+## SSL\_GENRSA()  
   
   
   
@@ -50,7 +54,7 @@ Generate a new RSA private key.
   
   
   
-## SSL\_GENCSR ()  
+## SSL\_GENCSR()  
   
   
   
@@ -65,7 +69,7 @@ Generate a new CSR.
   
   
   
-## SSL\_GENSELFSIGNED ()  
+## SSL\_GENSELFSIGNED()  
   
   
   
