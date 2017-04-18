@@ -62,7 +62,7 @@ SSL_DEP_INSTALL()
 #================================
 SSL_GENRSA()
 {
-    SPACE_SIGNATURE="keyfile bits"
+    SPACE_SIGNATURE="keyfile:1 [bits]"
     SPACE_DEP="PRINT FILE_MKDIRP"
 
     local keyfile="${1}"
@@ -97,7 +97,7 @@ SSL_GENRSA()
 SSL_GENCSR()
 {
     # shellcheck disable=SC2034
-    SPACE_SIGNATURE="keyfile csrfile [args]"
+    SPACE_SIGNATURE="keyfile:1 csrfile:1 [args]"
     # shellcheck disable=SC2034
     SPACE_DEP="PRINT FILE_MKDIRP"
 
@@ -140,21 +140,27 @@ SSL_GENCSR()
 #====================
 SSL_GENSELFSIGNED()
 {
-    local sslcert="$1"
+    SPACE_SIGNATURE="certname:1 [bits days args]"
+
+    local certname="${1}"
     shift
 
-    local sslkey="$1"
-    shift
-
-    local bits="${1-4096}"
+    local bits="${1:-4096}"
     shift $(( $# > 0 ? 1 : 0 ))
 
-    local days="${1-30}"
+    local days="${1:-30}"
     shift $(( $# > 0 ? 1 : 0 ))
 
-    local args="${1-}"
+    local args="${1:-}"
     shift $(( $# > 0 ? 1 : 0 ))
 
+    local sslkey="${certname}.key"
+    local sslcert="${certname}.crt"
     # shellcheck disable=SC2086
     openssl req -x509 -newkey "rsa:${bits}" -keyout ${sslkey} -out ${sslcert} -days "${days}" -nodes ${args}
+    if [ "$?" -eq 0 ]; then
+        cat ${sslkey} ${sslcert} > "${certname}.pem"
+    else
+        return 1
+    fi
 }

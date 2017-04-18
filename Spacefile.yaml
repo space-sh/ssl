@@ -14,7 +14,11 @@
 # limitations under the License.
 #
 ---
-@clone: os file
+_clone:
+    @clone: os file
+    @include: os|/_clone/
+    @include: file|/_clone/
+@include: |/_clone/
 
 _dep_install:
     _info:
@@ -24,30 +28,99 @@ _dep_install:
 
 _info:
     title: SSL module
-    desc:|
-        Generates private keys and certificates.
+    desc: |
+        Generate private keys, certificate signing requests and
+        self signed certificates.
 
 genkey:
     _info:
-        title: Generate key
-        desc:|
-            Generates a private key to be used with CSR.
+        title: Generate a private key
+        desc: |
+            Generates a private key to be used with a CSR.
     _env:
-        - RUN: SSL_GENRSA -- ${KEYFILE-} ${BITS-}
+        - keyfile:
+            title: Name of keyfile
+        - bits:
+            title: Bits to use
+            values:
+                - 2048
+                - 4096
+        - SPACE_ARGS:
+            arguments:
+                -
+                    values:
+                        - keyfile
+                -
+                    values:
+                        - 2048
+                        - 4096
+        - RUN: SSL_GENRSA -- "${keyfile}" "${bits}"
 
 gencsr:
     _info:
-        title: Create CSR
-        desc:|
+        title: Create a Certificate Signing Request (CSR) to be signed by a CA
+        desc: |
             Creates a new Certificate Signing Request.
+            Upload the request to the CA to have it signed,
+            then bundle that certificate with your private key
+            to get your final certificate.
     _env:
-        - RUN: SSL_GENCSR -- ${KEYFILE-} ${CSRFILE-} "${CSRARGS-}"
+        - keyfile:
+            title: Name of keyfile
+            completion: G
+        - csrfile:
+            title: Name of CSR file
+        - csrargs:
+            title: Optional additional args to openssl req
+        - SPACE_ARGS:
+            arguments:
+                -
+                    values:
+                        - keyfile
+                    completion: G
+                -
+                    values:
+                        - csrfile
+                -
+                    values:
+                        - args
+        - RUN: SSL_GENCSR -- "${keyfile}" "${csrfile}" "${csrargs}"
 
 genselfsigned:
     _info:
         title: Create self-signed certificate
-        desc:|
-            Creates a new self-signed certificate and key
+        desc: |
+            Creates a new self-signed certificate and key.
+            Self signed certificates are useful for development purposes
+            but not for production use.
     _env:
-        - RUN: SSL_GENSELFSIGNED -- ${KEYFILE-} ${CERTFILE-} ${BITS-} ${DAYS-} "${CERTARGS-}"
+        - certname:
+            title: Name of certificate
+        - bits:
+            title: Bits to use
+            values:
+                - 2048
+                - 4096
+        - days:
+            title: Days to be valid
+            values:
+                - 365
+        - certargs:
+            title: Optional additional args to openssl req
+        - SPACE_ARGS:
+            arguments:
+                -
+                    values:
+                        - certname
+                -
+                    values:
+                        - 2048
+                        - 4096
+                -
+                    values:
+                        - 365
+                -
+                    values:
+                        - certargs
+        - RUN: SSL_GENSELFSIGNED -- "${certname}" "${bits}" "${days}" "${certargs}"
 ...
