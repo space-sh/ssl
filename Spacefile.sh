@@ -121,6 +121,8 @@ SSL_GENCSR()
 
 # Disable warning about local keyword
 # shellcheck disable=SC2039
+# Disable warning about checking exit code indirectly
+# shellcheck disable=SC2181
 
 #====================
 # SSL_GENSELFSIGNED
@@ -140,6 +142,7 @@ SSL_GENCSR()
 #====================
 SSL_GENSELFSIGNED()
 {
+    # shellcheck disable=SC2034
     SPACE_SIGNATURE="certname:1 [bits days args]"
 
     local certname="${1}"
