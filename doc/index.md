@@ -6,7 +6,7 @@ weight: 100
 ---
 # SSL module
 
-_SSL_ module takes care of generating private keys and certificates.
+_SSL_ module takes care of generating private keys, certificate signing requests and self signed certificates.
 
 
 ## Dependencies
