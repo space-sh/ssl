@@ -1,27 +1,33 @@
 # SSL module | [![build status](https://gitlab.com/space-sh/ssl/badges/master/build.svg)](https://gitlab.com/space-sh/ssl/commits/master)
 
-Generates private keys and certificates.
+Generate private keys, certificate signing requests and
+self signed certificates.
 
 
 
 ## /gencsr/
-	Create CSR
+	Create a Certificate Signing Request (CSR) to be signed by a CA
 
 	Creates a new Certificate Signing Request.
+	Upload the request to the CA to have it signed,
+	then bundle that certificate with your private key
+	to get your final certificate.
 	
 
 
 ## /genkey/
-	Generate key
+	Generate a private key
 
-	Generates a private key to be used with CSR.
+	Generates a private key to be used with a CSR.
 	
 
 
 ## /genselfsigned/
 	Create self-signed certificate
 
-	Creates a new self-signed certificate and key
+	Creates a new self-signed certificate and key.
+	Self signed certificates are useful for development purposes
+	but not for production use.
 	
 
 
