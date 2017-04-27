@@ -46,22 +46,21 @@ _tests:
             @include: @{DIR}/../Spacefile.yaml|/_dep_install/
         -
             _env:
-                - KEYFILE: /tmp/keyfile
-                - BITS: 2048
+                - keyfile: /tmp/keyfile
+                - bits: 2048
             @include: @{DIR}/../Spacefile.yaml|/genkey/
         -
             _env:
-                - KEYFILE: /tmp/keyfile
-                - CSRFILE: /tmp/csrfile
-                - CSRARGS: -subj /C=SE -subj /CN=SpaceGal
+                - keyfile: /tmp/keyfile
+                - csrfile: /tmp/csrfile
+                - csrargs: -subj /C=SE -subj /CN=SpaceGal
             @include: @{DIR}/../Spacefile.yaml|/gencsr/
         -
             _env:
-                - KEYFILE: /tmp/keyfile
-                - CERTFILE: /tmp/csrfile
-                - BITS: 4096
-                - DAYS: 30
-                - CERTARGS: -subj /C=SE -subj /CN=SpaceGal
+                - certname: /tmp/csrfile
+                - bits: 4096
+                - days: 30
+                - certargs: -subj /C=SE -subj /CN=SpaceGal
             @include: @{DIR}/../Spacefile.yaml|/genselfsigned/
 
 _clean:
