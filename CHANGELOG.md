@@ -1,5 +1,10 @@
 # Space Module change log - ssl
 
+## [1.1.1 - 2017-04-27]
+
+* Update tests to comply with latest _Space_ arguments guidelines
+
+
 ## [1.1.0 - 2017-04-26]
 
 + Add auto completion
