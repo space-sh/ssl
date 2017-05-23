@@ -14,7 +14,7 @@ Generates a new self-signed certificate.
 
 Generate a new 4096-bit self-signed certificate valid for 365 days:
 ```sh
-$ space -m ssl /gencsr/ -- "/home/janitor/new.cert" "4096" "365"
+space -m ssl /gencsr/ -- "/home/janitor/new.cert" "4096" "365"
 ```
 
 The above will create three files: `new.cert.key`, `new.cert.crt` and `new.cert.pem`.  
