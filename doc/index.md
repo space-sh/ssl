@@ -2,6 +2,7 @@
 modulename: SSL
 title: Overview
 giturl: gitlab.com/space-sh/ssl
+editurl: /edit/master/doc/index.md
 weight: 100
 ---
 # SSL module

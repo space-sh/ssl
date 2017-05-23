@@ -2,6 +2,7 @@
 modulename: SSL
 title: /genkey/
 giturl: gitlab.com/space-sh/ssl
+editurl: /edit/master/doc/genkey.md
 weight: 200
 ---
 # SSL module: Generate key

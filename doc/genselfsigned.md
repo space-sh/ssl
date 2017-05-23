@@ -2,6 +2,7 @@
 modulename: SSL
 title: /genselfsigned/
 giturl: gitlab.com/space-sh/ssl
+editurl: /edit/master/doc/genselfsigned.md
 weight: 200
 ---
 # SSL module: Generate self-signed

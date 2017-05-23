@@ -2,6 +2,7 @@
 modulename: SSL
 title: /gencsr/
 giturl: gitlab.com/space-sh/ssl
+editurl: /edit/master/doc/gencsr.md
 weight: 200
 ---
 # SSL module: Generate CSR
