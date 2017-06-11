@@ -1,5 +1,12 @@
 # Space Module change log - ssl
 
+## [1.1.2 - 2017-06-11]
+
+* Update documentation
+
+* Change Arch Linux image for CI tests
+
+
 ## [1.1.1 - 2017-04-27]
 
 * Update tests to comply with latest _Space_ arguments guidelines
