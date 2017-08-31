@@ -167,3 +167,13 @@ SSL_GENSELFSIGNED()
         return 1
     fi
 }
+
+SSL_CERTCHECK()
+{
+    SPACE_SIGNATURE="cert"
+
+    local cert="${1}"
+    shift
+
+    openssl x509 -in "${cert}" -text -noout
+}

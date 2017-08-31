@@ -123,4 +123,14 @@ genselfsigned:
                     values:
                         - certargs
         - RUN: SSL_GENSELFSIGNED -- "${certname}" "${bits}" "${days}" "${certargs}"
+
+certcheck:
+    _env:
+        - cert:
+            title: Name of certificate
+        - SPACE_ARGS:
+            arguments:
+                -
+                    completion: G
+        - RUN: SSL_CERTCHECK -- "${cert}"
 ...
