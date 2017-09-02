@@ -170,6 +170,7 @@ SSL_GENSELFSIGNED()
 
 SSL_CERTCHECK()
 {
+    # shellcheck disable=SC2034
     SPACE_SIGNATURE="cert"
 
     local cert="${1}"
