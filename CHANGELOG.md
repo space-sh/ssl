@@ -1,5 +1,10 @@
 # Space Module change log - ssl
 
+## [1.2.0 - 2017-09-02]
+
++ Add `cert_check`
+
+
 ## [1.1.2 - 2017-06-11]
 
 * Update documentation
