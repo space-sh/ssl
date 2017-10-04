@@ -125,6 +125,12 @@ genselfsigned:
         - RUN: SSL_GENSELFSIGNED -- "${certname}" "${bits}" "${days}" "${certargs}"
 
 certcheck:
+    _info:
+        title: Check a given certificate
+        desc: |
+            Checks if a given certificate is valid
+            and returns information about it,
+            including signing details and expiration date.
     _env:
         - cert:
             title: Name of certificate
