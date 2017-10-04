@@ -5,6 +5,15 @@ self signed certificates.
 
 
 
+## /certcheck/
+	Check a given certificate
+
+	Checks if a given certificate is valid
+	and returns information about it,
+	including signing details and expiration date.
+	
+
+
 ## /gencsr/
 	Create a Certificate Signing Request (CSR) to be signed by a CA
 
