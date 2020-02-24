@@ -1,4 +1,4 @@
-# SSL module | [![build status](https://gitlab.com/space-sh/ssl/badges/master/build.svg)](https://gitlab.com/space-sh/ssl/commits/master)
+# SSL module | [![build status](https://gitlab.com/space-sh/ssl/badges/master/pipeline.svg)](https://gitlab.com/space-sh/ssl/commits/master)
 
 Generate private keys, certificate signing requests and
 self signed certificates.
