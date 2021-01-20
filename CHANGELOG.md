@@ -1,5 +1,10 @@
 # Space Module change log - ssl
 
+## [1.2.2 - 2021-01-19]
+
+* Fix bug in _.pem_ certificate file output: `cert` comes before `key`
+
+
 ## [1.2.1 - 2020-02-24]
 
 * Update documentation
